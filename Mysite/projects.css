@@ -1,0 +1,139 @@
+body { background-image	: url("space.jpg");}
+/* Home link - my name */
+.homelink {        border: 0px dashed black;
+				   width	: 30%;
+				   height	: 10%;
+				   margin-top	:	1%;
+				   margin-left	:	1%;
+				   margin-right	:	1%;
+}
+
+/* Home link - my name */
+.title-mename {    	border : 3px dashed white;
+					font-size : 30px ; 
+					text-decoration : none ;  
+					color : white ;  
+					padding-top : 10px;
+					padding-left : 70px;
+					padding-right : 15px;
+					padding-bottom : 10px;
+}
+		  
+a:focus { background : red ; color: white; }
+a:hover { background : orange;}
+
+/* End of home link */
+
+		  
+/* Scaby - first project*/
+.proj1 {	border: 1px solid black;
+			background: white;
+			width : 520px;
+			height : 550px;
+			margin-left : 70px;
+			margin-top: 5%;
+}
+		
+.scaby {	background-image	: url("space.jpg");
+			color : white ; 
+			font-size : 30px ; 
+			border : 5px solid red;	
+			height: 40px;
+			width: 470px;
+			margin-left: 10px;
+}
+
+p:first-letter {font-size : xx-large;}
+
+.abstract {	font-family : Times New Roman;
+				font-size : 20px;
+				margin-left : 19px;	
+				color: black;
+}
+
+.scaby-link {
+					border : 5px dashed blue;
+					background-image	: url("space.jpg");
+					font-size : 20px ; 
+					text-decoration : none ;  
+					color : white; 
+					width : 110px; 
+					padding-top : 0px;
+					padding-left : 5px;
+					padding-right : 0px;
+					padding-bottom : 10px;
+					margin-left: 10px;
+
+}
+
+.scaby-gitlink {	border : 5px dashed blue;
+					background-image	: url("space.jpg");
+					font-size : 20px ; 
+					text-decoration : none ;  
+					color : white; 
+					width : 110px; 
+					padding-top : 0px;
+					padding-left : 5px;
+					padding-right : 0px;
+					padding-bottom : 10px;
+					margin-left: 250px;
+
+}
+
+/* Stay Woke - second project*/
+.proj2 {	border: 1px solid black;
+			background: white;
+			width : 520px;
+			height : 550px;
+			margin-left : 620px;
+			margin-top: -550px;
+
+}
+
+.stay-woke {	background-image	: url("space.jpg");
+				color : white ; 
+				font-size : 30px ; 
+				border : 5px solid blue;	
+				height: 40px;
+				width: 470px;
+				margin-left: 10px;
+				margin-bottom: -50px; 
+}
+.abtproj {	font-family : Times New Roman;
+			font-size : 20px;
+			margin: 50px;
+			color: black;
+			text-indent: 50px;	
+			text-align: justify;
+}
+
+.swoke-link {
+					border : 5px dashed blue;
+					background-image	: url("space.jpg");
+					font-size : 20px ; 
+					text-decoration : none ;  
+					color : white ; 
+					width : 110px; 
+					padding-top : -30px;
+					padding-left : 5px;
+					padding-right : 0px;
+					padding-bottom : -60px;
+					margin-left: 10px;
+
+}
+
+.swoke-gitlink {			border : 5px dashed blue;
+					background-image	: url("space.jpg");
+					font-size : 20px ; 
+					text-decoration : none ;  
+					color : white ; 
+					width : 110px; 
+					padding-top : 0px;
+					padding-left : 5px;
+					padding-right : 0px;
+					padding-bottom : 10px;
+					margin-left: 250px;
+
+
+}
+

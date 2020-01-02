@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta http-equiv="refresh" content="">
+    <title>Scaby</title>
+    <link rel="stylesheet" href="scaby.css">
+</head>
+
+<body>
+	 <div class="homebox">
+         <a class="title-mename" href="main.html">Home</a>
+    </div>
+	
+	<div class="proj1">
+	
+		
+			<h1>SCABY</h1>
+
+			<video style="display: block; margin-left: auto; margin-right: auto;" width="620" height="340" controls>
+					<source src="scaby/scaby.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+			</video>
+
+		<div class="left">
+			<div class="headers">Abstract</div>
+				<p class="abstract">
+					Given the advancements in autonomous technology being developed in a wide-ranging fields from automotive, cleaning systems, and to even cooking devices, it is clear that the development of a proper lawn maintenance system will prove popular within the current market if done properly. Currently, there does exist autonomous lawn management systems on the market. However, the current products are rather expensive and do not provide an exceptionally clean mowing pattern, whereas they mow in a random pattern that is based only upon how the mower rebounds off of the boundary and turns away much like the Roomba vacuum currently on the market.
+				</p>
+
+			<div class="headers">Introduction</div>
+				<p class="abstract">
+					The goal of this project was to design, build and test an autonomous lawn mower that is capable of producing an appealing cut pattern on the grass. The inspiration for this project were the long days spent mowing lawns in the Las Vegas summer. By implementing a semi-autonomous lawn mower time could be saved to participate in activities more enjoyable.
+
+					The physical design of the mower has been through a few rounds of revisions whereas the electrical and controls design of the mower has stayed relatively constant. The changes made to the physical design of the mower were born out of three ideas. The first was to make the design more efficient. The second was to reduce the cost. The last, and most important to us, was to increase the skills learned while completing the project. The goal was to find a middle ground that limited the need to large and expensive machinery as well as would provide an interesting challenge to build. This resulted in the final design constructed out of aluminum square tubing and plexiglass. The revision made to the controls portion of the system were made early in the design stage. The change that was made changed the basic phenomenon that was used to guide the mower. Originally, the plan was to bury a conductor in the lawn that would act as a source of power to charge as well as to guide the mower. This was changed to implementing a GPS unit for guidance. 
+				</p>
+
+			<div class="headers">Goals</div>
+				<p class="goals">
+					The goals of our design are as follows:
+					<ul style="margin-left: 10%;">
+						<li>Size mower to limit the time needed to mow an average size lawn.</li>
+						<li>Size the motors so that they are capable of handing the weight of mower on both flat and sloped lawns.</li>
+						<li>Be able to mow a 20’ x 20’ area on a single charge.</li>
+						<li>Include safety features such as:</li>
+							<ul>
+								<li>Irregular motion detection</li>
+								<li>Object detection</li>
+								<li>Obstacle detection</li>
+								<li>Communication with weather services.</li>
+							</ul>
+						<li>Schedulable cycles.</li>
+						<li>Base with charging functionality.</li>
+					</ul>
+				</p>
+				<div style="margin-left: 1%;">
+					Given the nature of the project, there was little constraints in the construction or design of the mower, other than being able to keep the budget under $2,000.
+				</div>	
+
+			<div class="headers">Design</div>
+				<p class="abstract">
+					The main outcome of SCABY was to design and build an autonomous lawn mower that required no input from the user beyond the initial set up and installation. To achieve this, we chose to utilize a GPS navigation system called MarvelMind. MarvelMind is a complete time-of-flight tracking system that is accurate to within ±2cm. The program used for this algorithm works by using four stationary perimeter beacons and two mobile beacons mounted on SCABY. While the mower is moving, the mobile beacons are able to communicate with one another through a Raspberry Pi and pinpoint its position on the lawn by using the stationary beacons. 
+				</p>
+
+				<figure>
+
+					<img style="margin-left: 10%;" src="scaby/fig1.png" width="520" height="300">
+
+					<figcaption style="margin-left: 170px;">Fig.1 Navigation System Algorithm
+					</figcaption>
+					
+				</figure>
+					
+				<p class="abstract">
+					Figure one shows a pictorial of the measurements required for our tracking algorithm. When mower is instructed to begin its cycle, the MarvelMind systems sends to the Raspberry Pi the array of waypoints and the current position of the lawn mower. The distance between the center of the mower and the first way point is calculated. Then the distances between each mobile beacon and the current waypoint is calculated. The mower is now able to correct its course in real time by determining a ratio of the length of each of its sides and the distance between the center of the beacons to the waypoint, . These values are then converted to a value between 0 and 100 which is sent to each respective motor. Put simply, the beacon that is further away from the waypoint will cause its respective motor to speed up where as the beacon that closer will slow down. It is this speed differential that correct the position of the mower against the desired path. The MarvelMind is set to refresh itself at 14Hz and it is at this rate that the current position of the mower is sent to Pi for constant recalculation of the  values. This operation is set to repeat at 14Hz until the mower has completed it cycle. The last waypoint is set to be inside the charging station so that it completes its course while simultaneously starting the charging procedure. 
+				</p>
+
+				<video style="display: block; margin-left: 12%; margin-top: 1%; margin-right: 70px;" width="520" height="300" controls>
+					<source src="scaby/scaby_gif.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+
+				<p class="abstract">
+
+					The core of this project was the programming. The first step of the process was to first create a proof of concept design to determine if the navigation system will work correctly. The video on abover shows the parts needed to assemble the proof of concept rover and the MarvelMind beacons and stands. We designed the spatulas to hold the stationary beacons at height capable for clear line of sight between the stationary and mobile beacons. 
+
+				</p>
+
+				<figure>
+					<img style="margin-left: 8%; margin-top: 1%;" src="scaby/fig2.png" width="520" height="300">
+
+					<figcaption style="margin-left: 100px;">Fig.2 Marvelmind GPS Software</figcaption>
+				</figure>
+
+				<p class="abstract">
+					Figure 2 shows the marvelmind gps software. As we can see the system was successfully able to track the position of the rover in real time. The four perimeter beacons are shown in green and the mobile beacons are shown in blue. The objective was to integrate the MarvelMind navigation system with a Raspberry Pi so the rover to move on a preplanned path.
+				</p>
+
+				<figure>
+					<img style="margin-left: 10%; margin-top: 1%;" src="scaby/fig3.png" width="520" height="300">
+
+					<figcaption style="margin-left: 40%;">Fig.3 Second Protoype</figcaption>
+				</figure>
+
+
+
+				<p class="abstract">
+					Our second prototype build was constructed out of ¾” plywood to reduce the cost and time spent constructing. At this point we knew the size of the chassis required to fit all of the components, however, after this iteration it was determined that additional space was need in order to fit all components with adequate room for accessibility. The chassis dimensions were increased in order to achieve this. In the final weeks leading up to the Senior Design Contest, it became apparent that the controls aspect related to the GPS guidance of the mower would not be completed. This led to the mower being converted to an RC controlled system for proof of concept.
+				</p>
+		</div>
+
+		<div class="right">
+				
+				<figure>
+
+					<img style="margin-left: 10%; margin-top: 1%;" src="scaby/fig8.png" width="520" height="300">
+
+					<figcaption style="margin-left: 40%;">Fig.4 CAD Design</figcaption>
+
+					<img style="margin-left: 10%; margin-top: 1%;" src="scaby/fig4.png" width="520" height="300">
+
+					<figcaption style="margin-left: 40%;">Fig.5 Third Protoype</figcaption>
+				</figure>
+
+				<p class="abstract">
+					As seen in figure 4, the final construction continued upon the aluminum frame designed in previous weeks. While the system will not be controlled via the MarvelMind GPS system, all of the motor components are functional and will be controlled via an appropriate RC controller. Also, in order to display the point at which the kill switch will be engaged on the motor, an LED bar that will change between green and red to visually display the critical point. Issues arose within the ability to use the acquired data between the MarvelMind system and the Raspberry Pi in how to program the system to move. It is important to note that if more time was allotted, it would be likely that the system would function solely using the GPS system. 
+
+				</p>
+
+				<figure>
+					<img style="margin-left: 10%; margin-top: 1%;" src="scaby/fig5.png" width="520" height="300">
+
+					<figcaption style="margin-left: 35%;">Fig.6 Sensor Calibration</figcaption>
+
+					<img style="margin-left: 10%; margin-top: 1%;" src="scaby/fig6.png" width="520" height="300">
+
+					<figcaption style="margin-left: 35%;">Fig.7 Overhead View of Preprogrammed Path</figcaption>
+				</figure>
+
+
+
+				<p class="abstract">
+					As seen in figure 5, it was possible to calibrate the stationary beacons by acoustic designation, which would then use that placement to use those stationary positions as local GPS points. This would allow the mower to move around as desired within the desired and designated path. In figure 6, this was the desired path movement upon a generic lawn with each of the stationary beacons at the boundaries of the lawn. This, as stated, was not achieved due to difficulties in the controls of the system. 
+
+				</p>
+
+				<figure>
+					<img style="margin-left: 10%; margin-top: 1%;" src="scaby/fig7.png" width="520" height="300">
+
+					<figcaption style="margin-left: 35%;">Fig.8 Final Assembled Charging Station</figcaption>
+				</figure>
+
+				<p class="abstract">
+					The charging station was design so that the mower would be able to drive itself though. In order to accomplish this, there would be four contacts that hung below the top of the charging station. These contacts would be staggered and insulted from the chassis of the mower so that shorting against the chassis would not be a concern. These four contacts would serve four purposes: the first two would be the positive and negative legs of the DC circuit required to charge the battery, the third would be to measure the temperature of the battery so that it would not over heat and the last is the data so that the depth of charge of the battery could be determined and used in case the reason for docking was the need for a charge. Once the charging was complete, the mower would either sever the circuit to the battery to preserve the battery or to continue back to its course to complete its cycle. 
+				</p>
+
+				<figure>
+					<img style="margin-left: 10%; margin-top: 1%;" src="scaby/fig9.jpg" width="520" height="300">
+
+					<figcaption style="margin-left: 35%;">Fig.9 Final Assembly</figcaption>
+				</figure>
+
+			<div class="headers">Conclusion</div>
+
+				<p class="abstract">
+					Leading to the final completion date, it became apparent how difficult the integration of autonomous technology is within the design process. It was unfortunate that it was necessary to eliminate the primary functionality of the mower, but it gave perspective into why larger companies, such as Tesla and Audi, are investing a very large amount of time and money into the autonomous systems. If the team were to continue with the SCABY design after graduation, it would be imperative to primarily focus on the controls aspect of the mower to ensure that it will always function as desired. After that was completed, it would be relatively straight forward to design upon that given that it would be possible just to scale as needed for the mower. It would be interesting to see if future Senior Design teams would be interested in a continuation of the project as there is still a substantial portion to do as well as possibilities for the team to add their own ideas upon the SCABY system. 
+
+				</p>
+
+			<div class="headers">Future Enhancements</div>
+				<p class="abstract">
+					The original objective of this project was to design and build a lawn mower that can cut a unique pattern on a desired area of grass. SCABY currently operates using remote control capabilities. Some advancements to SCABY include the ability to control the mower from your phone or being able to connect it to Alexa. Another enhancement is the ability to be able to cut any type of pattern and the ability to customize coordinate or cut creative shapes and deigns. Currently SCABY is equipped with a gyroscope that allows it to safely turn off the power to the cutting blade when the body of the mower is lifted off the ground. Other safety measures can also be like obstacle avoidance and an alarm system. The navigation system was meant to use a tracking algorithm to pinpoint its position on the lawn. One potential improvement is to switch to another system to be able to complete a unique pattern. An example of a different system is image recognition. This type of system would eliminate the need for any type or perimeter wire or beacons.
+				</p>
+
+		</div>
+	</div>
+	
+	
+</body>
+</html>
